@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-12">
                 <!--Include alert file-->
-                @include('include.alert')
+                @include('message')
                 <div class="card-box">
                     <a href="{{ route('add-party') }}" class="btn btn-sm btn-blue waves-effect waves-light float-right">
                         <i class="mdi mdi-plus-circle"></i> Add Party
@@ -35,21 +35,28 @@
                         </thead>
 
                         <tbody>
-                            {{-- @if (count($parties))
-                                    @foreach ($parties as $index => $party) --}}
-                            <tr>
-                                {{-- <td><b>{{ $index + 1 }}</b></td>
-                                        <td><span class="badge badge-info">{{ $party->party_type }}</span></td> --}}
+                            @if (count($parties))
+                                @foreach ($parties as $index => $party)
+                                    <tr>
+                                        <td><b>{{ $index + 1 }}</b></td>
+                                        @if ($party->party_type == 'vendor')
+                                            <td><span class="badge badge-info">{{ $party->party_type }}</span></td>
+                                        @elseif ($party->party_type == 'client')
+                                            <td><span class="badge badge-danger">{{ $party->party_type }}</span></td>
+                                        @else
+                                            <td><span class="badge badge-warning">{{ $party->party_type }}</span></td>
+                                        @endif
 
-                                {{-- <td>
+
+                                        <td>
                                             <ul class="list-unstyled">
                                                 <li><b>Name :</b><span> {{ $party->full_name }}</span></li>
                                                 <li><b>Phone :</b><span> {{ $party->phone_no }}</span></li>
                                                 <li><b>Address :</b> <span> {{ $party->address }}</span></li>
                                             </ul>
-                                        </td> --}}
+                                        </td>
 
-                                {{-- <td>
+                                        <td>
                                             <ul class="list-unstyled">
                                                 <li><b>Account Holder Name :</b><span>
                                                         {{ $party->account_holder_name }}</span></li>
@@ -58,35 +65,46 @@
                                                 <li><b>IFSC Code :</b> <span> {{ $party->ifsc_code }}</span></li>
                                                 <li><b>Branch Address :</b> <span> {{ $party->branch_address }}</span></li>
                                             </ul>
-                                        </td> --}}
+                                        </td>
 
-                                {{-- <td>{{ date('d-m-Y', strtotime($party->created_at)) }}</td> --}}
+                                        <td>{{ date('d-m-Y', strtotime($party->created_at)) }}</td>
 
-                                <td>
-                                    <div class="btn-group dropdown">
-                                        <a href="javascript: void(0);"
-                                            class="table-action-btn dropdown-toggle arrow-none btn btn-light btn-sm"
-                                            data-toggle="dropdown" aria-expanded="false"><i
-                                                class="mdi mdi-dots-horizontal"></i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="mdi mdi-pencil mr-2 text-muted font-18 vertical-middle"></i>Edit</a>
+                                        <td>
+                                            <div class="btn-group dropdown">
+                                                <a href="javascript: void(0);"
+                                                    class="table-action-btn dropdown-toggle arrow-none btn btn-light btn-sm"
+                                                    data-toggle="dropdown" aria-expanded="false"><i
+                                                        class="mdi mdi-dots-horizontal"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('edit-party', $party->id) }}"><i
+                                                            class="mdi mdi-pencil mr-2 text-muted font-18 vertical-middle"></i>Edit</a>
 
-                                            <form method="post" action="#">
-                                                @csrf
-                                                @method('DELETE')
+                                                    <form method="post" action="{{ route('delete-parties', $party->id) }}"
+                                                        id="deleteForm">
+                                                        @csrf
+                                                        @method('DELETE')
 
-                                                <button type="submit" class="dropdown-item"><i
-                                                        class="mdi mdi-delete mr-2 text-muted font-18 vertical-middle"></i>Delete</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            {{-- @endforeach
-                            @endif --}}
+                                                        <button type="submit" class="dropdown-item"><i
+                                                                class="mdi mdi-delete mr-2 text-muted font-18 vertical-middle"
+                                                                onclick="confirmDelete()"></i>Delete</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
+
+                    {{-- Pagination --}}
+                    <div class="mt-1 d-flex justify-content-end">
+                        {{ $parties->links() }}
+                    </div>
+
+
+
 
                 </div><!-- end col -->
             </div>
@@ -99,3 +117,10 @@
         <!-- ============================================================== -->
     </div>
 @endsection
+<script>
+    function confirmDelete() {
+        if (confirm("Are you sure you want to delete this product?")) {
+            document.getElementById("deleteForm").submit();
+        }
+    }
+</script>

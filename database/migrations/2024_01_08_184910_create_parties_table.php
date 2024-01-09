@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('parties', function (Blueprint $table) {
             $table->id();
-            $table->enum('party_type', ['vendor', 'clinet', 'employee'])->nullable();
+            $table->enum('party_type', ['vendor', 'client', 'employee'])->nullable();
             $table->string('full_name', 100)->nullable();
             $table->string('phone_no', 15)->nullable();
             $table->text('address')->nullable();

@@ -12,6 +12,10 @@ Route::get('/', [AppController::class, 'index']);
 
 //Party route
 Route::get('/add-party', [PartyController::class, 'addParty'])->name('add-party');
+Route::post('/create-party', [PartyController::class, 'createParty'])->name('create-party');
+Route::get('/edit-party/{id}', [PartyController::class, 'editParty'])->name('edit-party');
+Route::put('/update-party/{id}', [PartyController::class, 'updateParty'])->name('update-party');
+Route::delete('/delete-parties/{id}', [PartyController::class, 'destroyParty'])->name('delete-parties');
 Route::get('/manage-parties', [PartyController::class, 'index'])->name('manage-parties');
 
 //Gst bill routes
