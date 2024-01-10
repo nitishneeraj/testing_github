@@ -21,4 +21,5 @@ Route::get('/manage-parties', [PartyController::class, 'index'])->name('manage-p
 //Gst bill routes
 Route::get('/add-gst-bill', [GstBillController::class, 'addGstBill'])->name('add-gst-bill');
 Route::get('/manage-gst-bills', [GstBillController::class, 'index'])->name('manage-gst-bills');
-Route::get('/print-gst-bill', [GstBillController::class, 'print'])->name('print-gst-bill');
+Route::get('/print-gst-bill/{id}', [GstBillController::class, 'print'])->name('print-gst-bill');
+Route::post('/create-gst-bill', [GstBillController::class, 'creategstBill'])->name('create-gst-bill');
