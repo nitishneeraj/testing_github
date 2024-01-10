@@ -18,11 +18,11 @@
                 <div class="card">
                     <div class="card-body">
                         <!--Include alert file-->
-                        @include('include.alert')
+                        @include('message')
 
                         <h4 class="header-title text-uppercase">Invoice Basic Info</h4>
                         <hr>
-                        <form action="#" method="post">
+                        <form action="{{ route('create-gst-bill') }}" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-md-4">
@@ -30,10 +30,13 @@
                                         <label>Party</label>
                                         <select class="form-control border-bottom" name="party_id" id="validationCustom01">
                                             <option value="">Please select</option>
-                                            {{-- @foreach ($parties as $party)
-                                        <option value="{{ $party->id }}">{{ $party->full_name }}</option>
-                                        @endforeach --}}
+                                            @foreach ($parties as $party)
+                                                <option value="{{ $party->id }}">{{ $party->full_name }}</option>
+                                            @endforeach
                                         </select>
+                                        @if ($errors->has('party_id'))
+                                            <span class="text-danger">{{ $errors->first('party_id') }}</span>
+                                        @endif
                                     </div>
                                 </div>
 
@@ -41,7 +44,10 @@
                                     <div class="form-group mb-3">
                                         <label>Invoice Date</label>
                                         <input type="date" name="invoice_date" class="form-control border-bottom"
-                                            id="validationCustom02">
+                                            id="validationCustom02" value="{{ old('invoice_date') }}">
+                                        @if ($errors->has('invoice_date'))
+                                            <span class="text-danger">{{ $errors->first('invoice_date') }}</span>
+                                        @endif
                                     </div>
                                 </div>
 
@@ -49,7 +55,11 @@
                                     <div class="form-group mb-3">
                                         <label>Invoice Number</label>
                                         <input type="text" name="invoice_no" class="form-control border-bottom"
-                                            id="validationCustom02" placeholder="Enter Invoice number">
+                                            id="validationCustom02" placeholder="Enter Invoice number"
+                                            value="{{ old('invoice_no') }}">
+                                        @if ($errors->has('invoice_no'))
+                                            <span class="text-danger">{{ $errors->first('invoice_no') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -72,11 +82,18 @@
 
                             <div class="row mb-3">
                                 <div class="col-md-8 border p-2">
-                                    <input class="form-control" name="item_description" />
+                                    <input class="form-control" name="item_description"
+                                        value="{{ old('item_description') }}" />
+                                    @if ($errors->has('item_description'))
+                                        <span class="text-danger">{{ $errors->first('item_description') }}</span>
+                                    @endif
                                 </div>
                                 <div class="col-md-4 border p-2">
                                     <input class="form-control" type="text" name="total_amount" id="totalAmountInput"
                                         oninput="calculateNetAmount()">
+                                    @if ($errors->has('total_amount'))
+                                        <span class="text-danger">{{ $errors->first('total_amount') }}</span>
+                                    @endif
                                 </div>
                             </div>
 
@@ -126,7 +143,11 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <input type="text" name="declaration" class="form-control border-bottom"
-                                            id="validationCustom05" placeholder="Declaration">
+                                            id="validationCustom05" placeholder="declaration"
+                                            value="{{ old('declaration') }}">
+                                        @if ($errors->has('declaration'))
+                                            <span class="text-danger">{{ $errors->first('declaration') }}</span>
+                                        @endif
                                     </div>
 
                                     <button type="submit" class="btn btn-primary float-right mb-2">SUBMIT</button>
