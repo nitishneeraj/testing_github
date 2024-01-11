@@ -28,6 +28,10 @@
                     <div class="collapse" id="sidebarEcommerce">
                         <ul class="nav-second-level">
                             <li>
+                                <a href="{{ route('create-vendor') }}"><i data-feather="plus" class="pr-0 mr-1"></i>
+                                    Vendor Invoices</a>
+                            </li>
+                            <li>
                                 <a href="{{ route('add-party') }}"><i data-feather="plus" class="pr-0 mr-1"></i>Add
                                     New</a>
                             </li>

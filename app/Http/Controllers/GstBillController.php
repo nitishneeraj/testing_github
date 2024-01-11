@@ -11,7 +11,7 @@ class GstBillController extends Controller
     //Function to load gst bills
     public function index()
     {
-        $bills = GstBill::with('party')->orderBy('created_at', 'desc')->paginate(3);
+        $bills = GstBill::where('is_deleted', 0)->with('party')->orderBy('created_at', 'desc')->paginate(3);
         return view('gst-bill.index', compact('bills'));
     }
     //Function to load add gst bill view
@@ -31,7 +31,6 @@ class GstBillController extends Controller
 
     public function creategstBill(Request $request)
     {
-
         //Validation
         $request->validate([
             'party_id' => 'required|integer|exists:parties,id',
@@ -48,7 +47,6 @@ class GstBillController extends Controller
             'tax_amount' => 'numeric|min:0',
             'net_amount' => 'numeric|min:0',
             'declaration' => 'required|max:255',
-
         ]);
         $gst_Bill = $request->all();
         //Remove token from post data before inserting

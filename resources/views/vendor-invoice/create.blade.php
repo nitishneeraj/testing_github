@@ -9,20 +9,25 @@
     <meta content="Coderthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App css -->
-    <link href="{{ asset('public/assets/css2/bootstrap-creative.min.css') }}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
-    <link href="{{ asset('public/assets/css2/app-creative.min.css') }}" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+    <link href="{{ asset('assets/css2/bootstrap-creative.min.css') }}" rel="stylesheet" type="text/css"
+        id="bs-default-stylesheet" />
+    <link href="{{ asset('assets/css2/app-creative.min.css') }}" rel="stylesheet" type="text/css"
+        id="app-default-stylesheet" />
 
-    <link href="{{ asset('public/assets/css2/bootstrap-creative-dark.min.css') }}" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" disabled />
-    <link href="{{ asset('public/assets/css2/app-creative-dark.min.css') }}" rel="stylesheet" type="text/css" id="app-dark-stylesheet" disabled />
+    <link href="{{ asset('assets/css2/bootstrap-creative-dark.min.css') }}" rel="stylesheet" type="text/css"
+        id="bs-dark-stylesheet" disabled />
+    <link href="{{ asset('assets/css2/app-creative-dark.min.css') }}" rel="stylesheet" type="text/css"
+        id="app-dark-stylesheet" disabled />
 
     <!-- icons -->
-    <link href="{{ asset('public/assets/css2/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css2/icons.min.css') }}" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="{{ asset('public/assets/style.css') }}">
 
 </head>
 
-<body data-layout-mode="detached" data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": true}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
+<body data-layout-mode="detached"
+    data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": true}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
 
     <!-- Begin page -->
     <div id="wrapper">
@@ -50,31 +55,38 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="needs-validation pb-2" method="post" action="{{ route('vendor-invoice.store') }}">
+                                    <form class="needs-validation pb-2" method="post"
+                                        action="{{ route('vendor-invoice.store') }}">
                                         @csrf
 
-                                        <h4 class="page-title "><i data-feather="edit-3" class="pr-0 mr-1 text-uppercase"></i>Enter Your
+                                        <h4 class="page-title "><i data-feather="edit-3"
+                                                class="pr-0 mr-1 text-uppercase"></i>Enter Your
                                             Details</h4>
                                         <hr>
                                         <div class="row my-3">
                                             <div class="form-group col-md-6">
                                                 <label for="">Name</label>
-                                                <input type="text" name="full_name" class="form-control border-bottom" id="validationCustom01" placeholder="Enter Full Name">
+                                                <input type="text" name="full_name"
+                                                    class="form-control border-bottom" id="validationCustom01"
+                                                    placeholder="Enter Full Name">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="">Phone Number</label>
-                                                <input type="text" name="phone_no" class="form-control border-bottom" id="validationCustom01" placeholder="Enter Phone/Mobile no.">
+                                                <input type="text" name="phone_no" class="form-control border-bottom"
+                                                    id="validationCustom01" placeholder="Enter Phone/Mobile no.">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-8">
                                                 <label for="">Address</label>
-                                                <input type="text" name="address" class="form-control border-bottom" id="validationCustom02" placeholder="Enter Address">
+                                                <input type="text" name="address" class="form-control border-bottom"
+                                                    id="validationCustom02" placeholder="Enter Address">
                                             </div>
 
                                             <div class="form-group col-md-4">
                                                 <label for="">Invoice Date</label>
-                                                <input type="date" name="invoice_date" class="form-control border-bottom" id="validationCustom01">
+                                                <input type="date" name="invoice_date"
+                                                    class="form-control border-bottom" id="validationCustom01">
                                             </div>
                                         </div>
                                         <h4 class="page-title pt-2"><i data-feather="edit-3" class="pr-0 mr-1"></i>ENTER
@@ -83,27 +95,37 @@
                                         <div class="row my-3">
                                             <div class="form-group col-md-4">
                                                 <label for="">Account Holder Name</label>
-                                                <input type="text" name="account_holder_name" class="form-control border-bottom" id="validationCustom01" placeholder="Enter Account Holder Name">
+                                                <input type="text" name="account_holder_name"
+                                                    class="form-control border-bottom" id="validationCustom01"
+                                                    placeholder="Enter Account Holder Name">
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="">Account Number</label>
-                                                <input type="text" name="account_no" class="form-control border-bottom" id="validationCustom01" placeholder="Enter Account Number">
+                                                <input type="text" name="account_no"
+                                                    class="form-control border-bottom" id="validationCustom01"
+                                                    placeholder="Enter Account Number">
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="">Bank Name</label>
-                                                <input type="text" name="bank_name" class="form-control border-bottom" id="validationCustom02" placeholder="Enter Bank Name">
+                                                <input type="text" name="bank_name"
+                                                    class="form-control border-bottom" id="validationCustom02"
+                                                    placeholder="Enter Bank Name">
 
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-3">
                                                 <label for="">IFSC Code</label>
-                                                <input type="text" name="ifsc_code" class="form-control border-bottom" id="validationCustom01" placeholder="Enter IFSC Code">
+                                                <input type="text" name="ifsc_code"
+                                                    class="form-control border-bottom" id="validationCustom01"
+                                                    placeholder="Enter IFSC Code">
 
                                             </div>
                                             <div class="form-group col-md-9">
                                                 <label for="">Branch Address</label>
-                                                <input type="text" name="branch_address" class="form-control border-bottom" id="validationCustom01" placeholder="Enter Address">
+                                                <input type="text" name="branch_address"
+                                                    class="form-control border-bottom" id="validationCustom01"
+                                                    placeholder="Enter Address">
                                             </div>
                                         </div>
                                         <h4 class="page-title "><i data-feather="edit-3" class="pr-0 mr-1"></i>ENTER
@@ -125,7 +147,8 @@
                                                 <input class="form-control" name="item_description" />
                                             </div>
                                             <div class="col-md-4 border p-2">
-                                                <input class="form-control" type="text" name="total_amount" id="totalInput" oninput="calculateTotalAmount()">
+                                                <input class="form-control" type="text" name="total_amount"
+                                                    id="totalInput" oninput="calculateTotalAmount()">
                                             </div>
                                         </div>
 
@@ -133,7 +156,8 @@
                                             <div class="col-md-12">
                                                 <ul style="list-style: none;float: right;">
                                                     <li>
-                                                        <b>Total Amount:</b> ₹ <span type="text" id="totalDisplay">0</span>
+                                                        <b>Total Amount:</b> ₹ <span type="text"
+                                                            id="totalDisplay">0</span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -142,10 +166,13 @@
                                 <div class="row mt-3 px-2">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" name="declaration" class="form-control border-bottom" id="validationCustom05" placeholder="Declaration (if any)">
+                                            <input type="text" name="declaration"
+                                                class="form-control border-bottom" id="validationCustom05"
+                                                placeholder="Declaration (if any)">
                                         </div>
 
-                                        <button type="submit" class="btn btn-success float-right mb-2">SUBMIT <i data-feather="arrow-right" class="ml-1 fw-bold"></i></button>
+                                        <button type="submit" class="btn btn-success float-right mb-2">SUBMIT <i
+                                                data-feather="arrow-right" class="ml-1 fw-bold"></i></button>
                                     </div>
                                 </div>
                                 </form>
@@ -153,8 +180,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -168,7 +193,7 @@
     <!-- END wrapper -->
 
     <!-- Vendor js -->
-    <script src="{{ asset('public/assets/js2/vendor.min.js') }}"></script>
+    <script src="{{ asset('assets/js2/vendor.min.js') }}"></script>
 
     <!-- Plugins js-->
     <script src="{{ asset('public/assets/libs2/flatpickr/flatpickr.min.js') }}"></script>

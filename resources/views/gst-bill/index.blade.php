@@ -65,7 +65,8 @@
                                                     data-toggle="dropdown" aria-expanded="false"><i
                                                         class="mdi mdi-dots-horizontal"></i></a>
                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#"><i
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('delete', ['gst_bills', $bill->id]) }}"><i
                                                             class="mdi mdi-delete mr-2 text-muted font-18 vertical-middle"></i>Delete</a>
                                                     <a class="dropdown-item"
                                                         href="{{ route('print-gst-bill', $bill->id) }}"><i

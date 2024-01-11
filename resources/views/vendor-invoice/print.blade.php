@@ -9,21 +9,26 @@
     <meta content="Coderthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App css -->
-    <link href="{{ asset('public/assets/css2/bootstrap-creative.min.css') }}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
-    <link href="{{ asset('public/assets/css2/app-creative.min.css') }}" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+    <link href="{{ asset('assets/css2/bootstrap-creative.min.css') }}" rel="stylesheet" type="text/css"
+        id="bs-default-stylesheet" />
+    <link href="{{ asset('css2/app-creative.min.css') }}" rel="stylesheet" type="text/css"
+        id="app-default-stylesheet" />
 
-    <link href="{{ asset('public/assets/css2/bootstrap-creative-dark.min.css') }}" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" disabled />
-    <link href="{{ asset('public/assets/css2/app-creative-dark.min.css') }}" rel="stylesheet" type="text/css" id="app-dark-stylesheet" disabled />
+    <link href="{{ asset('assets/css2/bootstrap-creative-dark.min.css') }}" rel="stylesheet" type="text/css"
+        id="bs-dark-stylesheet" disabled />
+    <link href="{{ asset('assets/css2/app-creative-dark.min.css') }}" rel="stylesheet" type="text/css"
+        id="app-dark-stylesheet" disabled />
 
     <!-- icons -->
-    <link href="{{ asset('public/assets/css2/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css2/icons.min.css') }}" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="{{ asset('public/assets/style.css') }}">
 
 
 </head>
 
-<body data-layout-mode="detached" data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": true}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
+<body data-layout-mode="detached"
+    data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": true}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
 
     <!-- Begin page -->
     <div id="wrapper">
@@ -91,7 +96,7 @@
                                         <div class="row pl-2 pt-1">
                                             <div class="col-12 d-flex justiy-content-start">
                                                 <label for="">Name : </label>
-                                                <input type="text" style="border: none; line-height: -10;">
+                                                {{-- <span class="ml-1">{{ }}</span> --}}
                                             </div>
                                         </div>
                                         <div class="row pl-2">
@@ -228,12 +233,15 @@
                                     </div> <!-- end col -->
                                     <div class="col-sm-6 col-lg-3 mt-1">
                                         <ul class="list-unstyled">
-                                            <li><b>Total :</b> <span class="float-right"><i class="fas fa-rupee-sign"></i>
+                                            <li><b>Total :</b> <span class="float-right"><i
+                                                        class="fas fa-rupee-sign"></i>
                                                     0.00</span></li>
-                                            <li><b>TAX :</b><span class="float-right"><i class="fas fa-rupee-sign"></i>
+                                            <li><b>TAX :</b><span class="float-right"><i
+                                                        class="fas fa-rupee-sign"></i>
                                                     0.00</span>
                                             </li>
-                                            <li><b>Grand Total :</b><span class="float-right"><i class="fas fa-rupee-sign"></i>
+                                            <li><b>Grand Total :</b><span class="float-right"><i
+                                                        class="fas fa-rupee-sign"></i>
                                                     0.00</span>
                                             </li>
                                         </ul>
@@ -244,7 +252,9 @@
 
                                 <div class="mt-4 mb-1">
                                     <div class="text-right d-print-none">
-                                        <a href="javascript:window.print()" class="btn btn-primary waves-effect waves-light">Print <i class="mdi mdi-printer mr-1"></i></a>
+                                        <a href="javascript:window.print()"
+                                            class="btn btn-primary waves-effect waves-light">Print <i
+                                                class="mdi mdi-printer mr-1"></i></a>
                                     </div>
                                 </div>
                             </div> <!-- end card-box -->
