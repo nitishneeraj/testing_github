@@ -28,7 +28,6 @@ class VendorInvoiceController extends Controller
      */
     public function store(Request $request)
     {
-
         # Check for existing client (vendor)
         $party = DB::table('parties')
             ->where('party_type', 'vendor')

@@ -4,7 +4,7 @@
 
         {{-- User box --}}
         <div class="user-box text-center">
-            <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="user-img" class="rounded-circle" title=" " />
+            <img src="{{ asset('assets/images/users/user-4.jpg') }}" alt="user-img" class="rounded-circle" title=" " />
             <p class="text-muted mt-2">Admin Head</p>
         </div>
 
